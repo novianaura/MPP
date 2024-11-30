@@ -19,15 +19,14 @@ class Bgparallaxcomponent extends ParallaxComponent with HasGameRef {
   @override
   FutureOr<void> onLoad() async {
     parallax = await game.loadParallax(_parallelImage,
-    baseVelocity: Vector2(10,0),
-    velocityMultiplierDelta: Vector2(1.5, 1.5),
+    baseVelocity: Vector2(0, -10),
+    velocityMultiplierDelta: Vector2(1, 1),
     repeat: ImageRepeat.repeat);
   }
 
-
-void changeSpeedBasedShip(Ship player){
-  if(parallax != null){
-    parallax!.baseVelocity = player.arah * 10;
+  void changeSpeedBasedShip(Ship player){
+    if(parallax != null){
+      parallax!.baseVelocity = player.arah * 10;
+    }
   }
-}
 }
